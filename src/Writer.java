@@ -16,15 +16,10 @@ public class Writer {
             writer = new FileWriter(fileNanme);
             PrintWriter out = new PrintWriter(writer);
 
-            out.println("id,package,NC,A,I,D");
-            int id = 0;
+            out.println("instability,abstractness");
             for (PackageInfo packageInfo : packageInfoList) {
-                out.print(++id + ",");
-                out.print(packageInfo.getPackageName() + ",");
-                out.print(packageInfo.getClassCount() + ",");
-                out.print(packageInfo.getAbstract() + ",");
                 out.print(packageInfo.getInstability() + ",");
-                out.println(packageInfo.getDistance());
+                out.println(packageInfo.getAbstract());
             }
             out.flush();
             out.close();
