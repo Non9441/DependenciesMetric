@@ -14,7 +14,7 @@ public class Collector {
     }
 
     public void calculate(String directory, String root) {
-        this.root = root;
+        Collector.root = root;
         collectFromDirectory(directory);
         calculateInfo();
     }

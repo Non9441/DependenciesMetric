@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.HashSet;
 import java.util.Set;
 
 public class ClassInfo {
@@ -17,13 +18,14 @@ public class ClassInfo {
         this.file = file;
         this.isAbstact = false;
         this.isImporting = false;
-        this.className = this.file.getName();
+        this.className = file.getName();
+        this.importedPackage = new HashSet<>();
         collectInfo();
     }
 
     public void collectInfo() {
-        String line;
         try {
+        	String line;
             reader = new BufferedReader(new FileReader(this.file));
             while((line=reader.readLine())!=null) {
                 if (line.startsWith("package")) {
